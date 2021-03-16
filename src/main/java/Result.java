@@ -18,17 +18,17 @@ public class Result {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        int eingabe;
-        eingabe = input.nextInt();
-        List<Integer> grades = new ArrayList<Integer>(eingabe);
+        int students;
+        students = input.nextInt();
+        List<Integer> grades = new ArrayList<Integer>(students);
 
-        for (int i=0; i<eingabe; i++){
+        for (int i=0; i<students; i++){
             int newEingabe;
             newEingabe = input.nextInt();
             grades.add(newEingabe);
         }
 
-        List<Integer> newGrades = new ArrayList<Integer>(eingabe);
+        List<Integer> newGrades;
         newGrades = gradingStudents(grades);
 
         for (int i=0; i<newGrades.size(); i++){
