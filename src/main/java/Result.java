@@ -17,12 +17,12 @@ public class Result {
         if(grades.isEmpty()){
             return new ArrayList<>();
         }
-        else if (grades.get(ZERO) < MINIMUM_AMOUNT_STUDENTS || grades.get(0) > MAX_AMOUNT_STUDENTS) {
+        else if (grades.get(ZERO) < MINIMUM_AMOUNT_STUDENTS || grades.get(ZERO) > MAX_AMOUNT_STUDENTS) {
             return new ArrayList<>();
         }
 
         for (int i = 1; i <= grades.get(ZERO); i++) {
-            if (grades.get(i) > MAX_GRADES) {
+            if (grades.get(i) > MAX_GRADES || grades.get(i) < ZERO) {
                 result.set(i, ZERO);
 
             } else if(grades.get(i) >= NO_ROUND_MINIMUM && grades.get(i) % DIVIDE_BY_FIVE >= DIVIDE_BY_THREE) {
@@ -31,5 +31,9 @@ public class Result {
             System.out.println(result.get(i));
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        gradingStudents(List.of(-2, -1, -100));
     }
 }
